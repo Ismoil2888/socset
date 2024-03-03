@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Socset</title>
+
+<style>
+
+*{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+}
+
+header{
+    z-index: 100;
+    width: 395px;
+    height: 7%;
+    background-color: #0F919C;
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    border-bottom: 2px solid white;
+    color: white;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    font-family: sans-serif;
+}
+
+.menu{
+    width: 45px;
+    margin-right: 5px;
+}
+
+main{
+    padding-top: 50px;
+    padding-bottom: 20px;
+    width: 395px;
+    height: 82%;
+    background: #6DA5C0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+.person-block{
+    height: 180px;
+    width: 110px;
+    border-radius: 100px;
+    background-color: rgb(193, 209, 209);
+    margin-top: 100px;
+    margin-left: 35%;
+}
+
+.icon-person{
+    width: 110px;
+    height: 130px;
+    color: white;
+}
+
+.person-infa{
+    text-align: center;
+    color: rgb(167, 245, 249);
+    font-family: sans-serif;
+}
+
+span{
+    color: rgb(252, 181, 181);
+}
+
+footer{
+    display: flex;
+    align-items: end;
+    width: 395px;
+    height: 10.8%;
+}
+
+.block-navigation{
+    width: 395px;
+    height: 90px;
+    background-color: #0F919C;
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    border-top: 1px solid white;
+}
+
+.block{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: aqua;
+    text-decoration: none;
+}
+
+.icons{
+    width: 35px;
+}
+
+.block1{
+    border-right: 1px solid white;
+}
+
+.block2{
+    border-right: 1px solid white;
+}
+
+.block3{
+    border-right: 1px solid white;
+}
+
+</style>
+
+</head>
+<body>
+    
+<div class="stranica">
+<header>
+        <h1 class="profile">Profile</h1>
+        <ion-icon class="menu" name="menu-sharp"></ion-icon>
+</header>
+<main>
+<div class="person-block">
+    <ion-icon class="icon-person" name="person"></ion-icon>
+</div><br><br>
+<div class="person-infa">
+    <h3><span>Nick-Name:</span> Hamidzoda Ismoil<br><br><span>Age:</span> 19 years old<br><br><span>Status:</span> Owner</h3>
+</div>
+</main>
+<footer>
+    <div class="block-navigation">
+        <div class="block1">
+            <a href="stranica1.html" class="block"><ion-icon class="icons" name="home"></ion-icon></a>
+        </div>
+        <div class="block2">
+            <a href="search.html" class="block"><ion-icon class="icons" name="search"></ion-icon></a>
+        </div>
+        <div class="block3">
+            <a href="" class="block"><ion-icon class="icons" name="albums"></ion-icon></a>
+        </div>
+        <div class="block4">
+            <a href="profile.html" class="block"><ion-icon class="icons" name="person"></ion-icon></a>
+        </div>
+    </div>
+</footer>
+</div>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
