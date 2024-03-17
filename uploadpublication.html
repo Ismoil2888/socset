@@ -47,8 +47,6 @@ header{
 }
 
 main{
-    display: flex;
-    flex-direction: column;
     padding-top: 50px;
     padding-bottom: 20px;
     /* width: 395px; */
@@ -113,6 +111,23 @@ footer{
     border-right: 1px solid white;
 }
 
+.block-dobavleniya{
+    display: flex;
+    flex-direction: row;
+    padding-top: 300px;
+}
+
+.choose{
+    color: red;
+    width: 230px;
+    height: 20px;
+}
+
+button{
+    width: 100px;
+    height: 50px;
+}
+
 </style>
 
 </head>
@@ -127,8 +142,10 @@ footer{
 </header>
 
 <main>
- <input type="file" id="imageInput" accept="image/*">
-<button onclick="publishImage()">Publish</button>
+    <div class="block-dobavleniya">
+      <input class="choose" type="file" id="imageInput" accept="image/*">
+      <button onclick="publishImage()">Publish</button>
+    </div>
 </main>
     
 <footer>
