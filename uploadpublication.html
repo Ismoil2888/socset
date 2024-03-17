@@ -185,10 +185,8 @@ button{
                 // Сохраняем массив изображений в локальное хранилище
                 localStorage.setItem('publishedImages', JSON.stringify(publishedImages));
 
-                // Отобразить новую публикацию на странице
-                const postContainer = document.getElementById('postContainer');
-                const postElement = createPostElement(imageData, publishedImages.length - 1);
-                postContainer.appendChild(postElement);
+                // Переходим на страницу с опубликованными изображениями
+                window.location.href = 'stranica1.html';
 
             };
         } else {
