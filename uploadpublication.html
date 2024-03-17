@@ -47,6 +47,8 @@ header{
 }
 
 main{
+    display: flex;
+    flex-direction: column;
     padding-top: 50px;
     padding-bottom: 20px;
     /* width: 395px; */
@@ -125,7 +127,8 @@ footer{
 </header>
 
 <main>
- <h1 class="poisk">Поиск</h1>
+ <input type="file" id="imageInput" accept="image/*">
+<button onclick="publishImage()">Publish</button>
 </main>
     
 <footer>
@@ -137,7 +140,7 @@ footer{
             <a href="" class="block"><ion-icon class="icons" name="search"></ion-icon></a>
         </div>
         <div class="block3">
-            <a href="uploadpublication.html" class="block"><ion-icon class="icons" name="albums"></ion-icon></a>
+            <a href="" class="block"><ion-icon class="icons" name="albums"></ion-icon></a>
         </div>
         <div class="block4">
             <a href="profile.html" class="block"><ion-icon class="icons" name="person"></ion-icon></a>
@@ -145,6 +148,34 @@ footer{
     </div>
 </footer>
 </div>
+
+<script>
+    function publishImage() {
+        const fileInput = document.getElementById('imageInput');
+        const file = fileInput.files[0];
+        
+        if (file) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+
+            reader.onload = function () {
+                const imageData = reader.result;
+
+                // Получаем текущий массив изображений или создаем новый
+                const publishedImages = JSON.parse(localStorage.getItem('publishedImages')) || [];
+                publishedImages.push(imageData);
+
+                // Сохраняем массив изображений в локальное хранилище
+                localStorage.setItem('publishedImages', JSON.stringify(publishedImages));
+
+                // Переходим на страницу с опубликованными изображениями
+                // window.location.href = 'published.html';
+            };
+        } else {
+            alert('Please select an image to publish.');
+        }
+    }
+</script>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
