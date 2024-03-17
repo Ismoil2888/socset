@@ -185,8 +185,11 @@ button{
                 // Сохраняем массив изображений в локальное хранилище
                 localStorage.setItem('publishedImages', JSON.stringify(publishedImages));
 
-                // Переходим на страницу с опубликованными изображениями
-                // window.location.href = 'published.html';
+                // Отобразить новую публикацию на странице
+                const postContainer = document.getElementById('postContainer');
+                const postElement = createPostElement(imageData, publishedImages.length - 1);
+                postContainer.appendChild(postElement);
+
             };
         } else {
             alert('Please select an image to publish.');
