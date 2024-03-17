@@ -23,16 +23,28 @@ function createPostElement(imageData, index) {
         deletePost(postElement, index);
     };
 
-    // Добавляем обработчик события для долгого нажатия
-    let timeoutId;
+    // Добавляем обработчик события для долгого нажатия на мобильных устройствах
+    let touchTimeoutId;
+    postElement.addEventListener('touchstart', function () {
+        touchTimeoutId = setTimeout(function () {
+            deleteBtn.style.display = 'block';
+        }, 1000); // Устанавливаем время задержки в 1 секунду
+    });
+
+    postElement.addEventListener('touchend', function () {
+        clearTimeout(touchTimeoutId);
+    });
+
+    // Добавляем обработчик события для долгого нажатия на компьютерах
+    let mouseTimeoutId;
     postElement.addEventListener('mousedown', function () {
-        timeoutId = setTimeout(function () {
+        mouseTimeoutId = setTimeout(function () {
             deleteBtn.style.display = 'block';
         }, 1000); // Устанавливаем время задержки в 1 секунду
     });
 
     postElement.addEventListener('mouseup', function () {
-        clearTimeout(timeoutId);
+        clearTimeout(mouseTimeoutId);
     });
 
     const postNavigation = document.createElement('div');
