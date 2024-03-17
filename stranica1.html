@@ -17,9 +17,10 @@
 
 header{
     z-index: 100;
-    width: 395px;
+    /* width: 395px; */
     height: 7%;
-    background-color: #0F919C;
+    background: transparent;
+    backdrop-filter: blur(15px);
     display: flex;
     position: fixed;
     flex-direction: row;
@@ -34,12 +35,12 @@ header{
     display: flex;
     align-items: center;
     margin-left: 10px;
-    color: wheat;
+    color: white;
     font-family: sans-serif;
 }
 
 .dark-mode{
-    color: aqua;
+    color: rgb(41, 100, 100);
     width: 47px;
     margin-right: 15px;
 }
@@ -47,10 +48,12 @@ header{
 main{
     padding-top: 50px;
     padding-bottom: 20px;
-    width: 395px;
+    padding-left: 20px;
     height: 82%;
-    background: #6DA5C0;
-    overflow-y: scroll;
+    background: url(kartinka/backgroumdforproject2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: scroll; /* Включаем вертикальный скролл только для элемента main */
     overflow-x: hidden;
 }
 
@@ -58,56 +61,70 @@ main{
     display: none;
 }
 
-.post{
-    height: 570px;
-    width: 95%;
-    border: 2px solid white;
-    margin-top: 15px;
-    background: #31586c;
-    border-radius: 16px;
-    margin-left: 6px;
-}
+.post-container {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            overflow-y: scroll;
+            z-index: ;
+        }
 
-.post-navigation{
-    height: 50px;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-    color: white;
-}
+        .post {
+            position: relative; /* Для позиционирования кнопки удаления */
+            height: auto;
+            width: 95%;
+            border: 2px solid white;
+            background: #31586c;
+            border-radius: 16px;
+            margin-top: 45px;
+            margin-bottom: 15px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
 
-.img-post{
-    overflow: hidden;
-    height: 470px;
-    border-bottom: 3px solid white;
-}
+        .post img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
 
-.like{
-    height: 40px;
-    width: 40px;
-}
+        .post-navigation {
+            height: 50px;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+            color: white;
+        }
 
-.coment{
-    height: 40px;
-    width: 40px;
-}
 
-.save{
-    height: 40px;
-    width: 40px;
-}
+        .post-navigation div {
+            cursor: pointer;
+        }
+
+        .post-navigation ion-icon {
+           font-size: 30px; /* Задайте желаемый размер иконок */
+       }
+
+
+        .post-navigation div:hover {
+            color: aqua;
+        }
 
 footer{
     display: flex;
     align-items: end;
-    width: 395px;
+    /* width: 395px; */
     height: 10.8%;
+    background: url(kartinka/backgroumdforproject2.png);
 }
 
 .block-navigation{
-    width: 395px;
+    /* width: 395px; */
     height: 90px;
-    background-color: #0F919C;
+    background: transparent;
+    backdrop-filter: blur(15px);
     display: flex;
     position: fixed;
     flex-direction: row;
@@ -118,12 +135,12 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: aqua;
+    color: white;
     text-decoration: none;
 }
 
 .icons{
-    width: 35px;
+    width: 45px;
 }
 
 .block1{
@@ -138,6 +155,25 @@ footer{
     border-right: 1px solid white;
 }
 
+.delete-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            display: none;
+            width: 60px;
+            height: 50px;
+        }
+
+        .delete-btn:hover {
+            background-color: darkred;
+        }
+
 </style>
 
 </head>
@@ -146,312 +182,12 @@ footer{
 <div class="stranica">
 <header>
     <div class="logo-block">
-        <h1 class="logo">Instajram</h1>
+        <h1 class="logo">Instagram</h1>
         <ion-icon class="dark-mode" name="invert-mode-sharp"></ion-icon>
     </div>
 </header>
-<main>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/games.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/world.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/street-portrait.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/street-portrait-wide.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/nature-dark.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/nature-bright.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/narutofoto.png" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/1.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/2.png" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/3.png" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/4.png" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/5.png" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/6.png" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/7.png" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/muzik.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/musica.gif" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/music.gif" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/librarymenu.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/library.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/knnggpptt.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/butyfone.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/foner.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/gallery2.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/glavfone.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/hallllll.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/hallll.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/halll.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/hallllll.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/knggptt.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    <div class="post">
-        <div class="img-post">
-            <img src="kartinka/kngptt.jpg" alt="">
-        </div>
-        <div class="post-navigation">
-            <div class="like"><ion-icon class="heart" name="heart"></ion-icon></div>
-            <div class="coment"><ion-icon name="chatbubble"></ion-icon></div>
-            <div class="save"><ion-icon name="bookmark"></ion-icon></div>
-        </div>
-    </div>
-    
+<main id="postContainer">
+    <!-- Публикации будут добавляться сюда динамически -->
 </main>
 <footer>
     <div class="block-navigation">
@@ -508,6 +244,8 @@ footer{
 
 
 </script>
+
+<script src="publikacii.js"></script>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
